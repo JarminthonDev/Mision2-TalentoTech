@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="sp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar con Web Component</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <mi-navbarUser></mi-navbarUser>
+    <section class="w-full min-h-24">
+        <img src="./uses/nike-gb.jpg" alt="">
+    </section>
+    <section class="h-96 mt-4">
+        <video class="w-full h-full object-cover object-[50%_80%]" autoplay muted loop
+            src="./uses/videoplayback.mp4" height="" width="100%" alt="no se cargo el video"></video>
+    </section>
+    <section class="my-4 py-4 px-8 space-y-3">
+        <h1 class="text-4xl px-8 sm:px-4 sm:text-5xl md:text-6xl font-bold text-center uppercase">Selecciones de Nikes
+            Colombianas
+        </h1>
+        <p class="text-lg font-medium text-center">La campeona de gimnasia encuentra el equilibrio en Nike Zenvy, la
+            combinación
+            perfecta de
+            comodidad <br>y
+            rendimiento.
+        </p>
+    </section>
+    <section class="flex flex-col sm:flex-row items-center justify-center gap-2 ">
+        <button type="button"
+            class="px-4 py-2 bg-[#111111] hover:bg-[#707072] rounded-full text-white font-semibold ">Comprar
+            las
+            selecciones de Nikes Colombianas
+        </button>
+        <button type="button"
+            class="px-4 py-2  bg-[#111111] hover:bg-[#707072] rounded-full text-white font-semibold">Comprar
+            regalos
+        </button>
+
+    </section>
+    <section class="grid grid-cols-1 grid-flow-row md:grid-rows-2 md:grid-cols-2 mt-14 ">
+        <div
+            class="w-full h-80 col-start-1 col-end-2 bg-[url('./uses/nike-forma1.jpg')] bg-cover  flex flex-col justify-end pb-8 pl-8 space-y-3">
+            <span class="text-xl font-medium text-white">lorem ipsum</span>
+            <h3 class="text-3xl text-white">Lorem, ipsum dolor.</h3>
+            <button type="button"
+                class="px-4 py-2 bg-[#fff] w-32 hover:bg-[#CACACB] rounded-full text-[#111] font-semibold">Tienda
+            </button>
+        </div>
+        <div
+            class="w-full h-80 col-start-1 md:col-start-2 md:col-end-3 col-end-2 bg-[url('./uses/nike-form2.jpg')] bg-cover flex flex-col justify-end pb-8 pl-8 space-y-3">
+            <span class="text-xl font-medium text-white">lorem ipsum</span>
+            <h3 class="text-3xl text-white">Lorem, ipsum dolor.</h3>
+            <button type="button"
+                class="px-4 py-2 bg-[#fff] w-32 hover:bg-[#CACACB] rounded-full text-[#111] font-semibold">Tienda
+            </button>
+        </div>
+        <div
+            class="w-full h-80 col-start-1 md:col-start-1 md:col-end-2 col-end-2 bg-[url('./uses/nike-forma3.jpg')] bg-cover flex flex-col justify-end pb-8 pl-8 space-y-3">
+            <span class="text-xl font-medium text-white">lorem ipsum</span>
+            <h3 class="text-3xl text-white">Lorem, ipsum dolor.</h3>
+            <button type="button"
+                class="px-4 py-2 bg-[#fff] w-32 hover:bg-[#CACACB] rounded-full text-[#111] font-semibold">Tienda
+            </button>
+        </div>
+        <div
+            class="w-full h-80 col-start-1 md:col-start-3 -md:col-end-1 col-end-2 bg-[url('./uses/nike-forma4.jpg')] bg-cover flex flex-col justify-end pb-8 pl-8 space-y-3">
+            <span class="text-xl font-medium text-white">lorem ipsum</span>
+            <h3 class="text-3xl text-white">Lorem, ipsum dolor.</h3>
+            <button type="button"
+                class="px-4 py-2 bg-[#fff] w-32 hover:bg-[#CACACB] rounded-full text-[#111] font-semibold">Tienda
+            </button>
+        </div>
+    </section>
+
+    <section class="my-10">
+        <h3 class="text-3xl px-8 sm:px-4 sm:text-4xl md:text-5xl font-bold text-center uppercase">Últimas entregas</h3>
+        <p class="mt-2 text-xl text-center">Con las Aír Jordan 4 y más.</p>
+        <div class="flex justify-center mt-6">
+            <button type="button"
+                class="px-4 py-2  bg-[#111111] hover:bg-[#707072] rounded-full text-white font-semibold ">Tienda
+            </button>
+        </div>
+        <div class="h-60 md:h-80 lg:h-96 w-full bg-cover bg-center mt-12"
+            style="background-image: url('./uses/nike-forma5.jpg');">
+        </div>
+
+    </section>
+
+    <section>
+        <h4 class="text-2xl px-8 sm:px-4 sm:text-3xl md:text-4xl font-bold  uppercase ml-8">Compar Los
+            clasicos
+        </h4>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-6 grid-rows-1  mx-10
+        my-5 mt-6 ">
+            <div class="w-full col-start-1 col-end-2 ">
+                <img title="foto de algun zapato"
+                    class="shadow-md shadow-slate-600 rounded-sm hover:scale-100 scale-90 transition-transform duration-300 "
+                    src="./uses/nike-just-do-it.jpg" alt="foto de algun zapato">
+            </div>
+            <div class="w-full   ">
+                <img title="foto de algun zapato"
+                    class="shadow-md shadow-slate-600 rounded-sm hover:scale-100 scale-90 transition-transform duration-300 "
+                    src="./uses/nike-just-do-it-1.jpg" alt="foto de algun zapato">
+            </div>
+            <div class="w-full   ">
+                <img title="foto de algun zapato"
+                    class="shadow-md shadow-slate-600 rounded-sm hover:scale-100 scale-90 transition-transform duration-300 "
+                    src="./uses/nike-just-do-it-2.jpg" alt="foto de algun zapato">
+            </div>
+            <div class="w-full   ">
+                <img title="foto de algun zapato"
+                    class="shadow-md shadow-slate-600 rounded-sm hover:scale-100 scale-90 transition-transform duration-300 "
+                    src="./uses/nike-just-do-it-3.jpg" alt="foto de algun zapato">
+            </div>
+            <div class="w-full lg:col-span-1 md:col-span-2 ">
+                <img title="foto de algun zapato"
+                    class="shadow-md shadow-slate-600 rounded-sm hover:scale-100 scale-90 transition-transform duration-300 "
+                    src="./uses/nike-just-do-it-4.jpg" alt="foto de algun zapato">
+            </div>
+            <div class="w-full lg:col-span-1 md:col-span-2">
+                <img title="foto de algun zapato"
+                    class="shadow-md shadow-slate-600 rounded-sm hover:scale-100 scale-90 transition-transform duration-300 "
+                    src="./uses/nike-just-do-it.jpg" alt="foto de algun zapato">
+            </div>
+        </div>
+
+    </section>
+
+    <section class=" h-auto flex flex-col items-center ">
+        <div class="flex justify-center items-end h-32">
+            <img src="./uses/nike.svg" alt="logo de nike" class="size-20 scale-125 select-none ">
+        </div>
+        <ul class="flex w-full *:text-center *:text-wrap h-24 justify-center gap-4 text-lg font-medium text-[#111]">
+            <li>
+                <a class="hover:text-gray-600" href="" title="Buscar una tienda">Buscar una tienda</a>
+            </li>
+            <li>
+                <a class="hover:text-gray-600" href="" title="ayuda">Ayuda</a>
+            </li>
+            <li>
+                <a class="hover:text-gray-600" href="" title="Únete a nosotros">Únete a nosotros</a>
+            </li>
+            <li>
+                <a class="hover:text-gray-600" href="">Inicia sesíon</a>
+            </li>
+        </ul>
+        <div class="grid gap-y-12 grid-cols-2 md:grid-cols-3 lg:grid-cols-4  w-10/12">
+            <ul>
+                <li>
+                    <h4 class="font-normal text-lg md:text-2xl">Recomendado</h4>
+                </li>
+                <li class="mt-6">
+                    <a class="text-base text-gray-600" href="">Fuerza aerea 1</a>
+                </li>
+                <li class="mt-2">
+                    <a class="text-base text-gray-600" href="">Jordana 1</a>
+                </li>
+                <li class="mt-2">
+                    <a class="text-base text-gray-600" href="">Metcon</a>
+                </li>
+                <li class="mt-2">
+                    <a class="text-base text-gray-600" href="">Air Max 270</a>
+                </li>
+
+            </ul>
+            <ul>
+                <li>
+                    <h4 class="font-normal text-lg md:text-2xl">Calzado</h4>
+                </li>
+                <li class="mt-6">
+                    <a class="text-base text-gray-600" href="">Todos los zapatos</a>
+                </li>
+                <li class="mt-2">
+                    <a class="text-base text-gray-600" href="">Zapatos Jordana</a>
+                </li>
+                <li class="mt-2">
+                    <a class="text-base text-gray-600" href="">Zapatillas</a>
+                </li>
+                <li class="mt-2">
+                    <a class="text-base text-gray-600" href="">Zapatillas de baloncesto</a>
+                </li>
+
+            </ul>
+            <ul>
+                <li>
+                    <h4 class="font-normal text-lg md:text-2xl">Ropa</h4>
+                </li>
+                <li class="mt-6">
+                    <a class="text-base text-gray-600" href="">Todos la ropa</a>
+                </li>
+                <li class="mt-2">
+                    <a class="text-base text-gray-600" href="">Top y camisetas</a>
+                </li>
+                <li class="mt-2">
+                    <a class="text-base text-gray-600" href="">Shorts</a>
+                </li>
+                <li class="mt-2">
+                    <a class="text-base text-gray-600" href="">Sudaderas con capucha</a>
+                </li>
+
+            </ul>
+            <ul class="col-span-1 md:col-span-3 lg:col-span-1">
+                <li>
+                    <h4 class="font-normal text-lg md:text-2xl">Niños</h4>
+                </li>
+                <li class="mt-6">
+                    <a class="text-base text-gray-600" href="" class="truncate">Zapatos para bebes y conjuntos</a>
+                </li>
+                <li class="mt-2">
+                    <a class="text-base text-gray-600" href="">Zapatos para niños</a>
+                </li>
+                <li class="mt-2">
+                    <a class="text-base text-gray-600" href="">Zapatillas de balones</a>
+                </li>
+                <li class="mt-2">
+                    <a class="text-base text-gray-600" href="">Zapatillas de correr</a>
+                </li>
+
+            </ul>
+        </div>
+        <div class="my-20 grid gap-4 gap-y-12 grid-cols-2 md:grid-cols-3 lg:grid-cols-5  w-10/12">
+            <ul>
+                <li>
+                    <h4 class="font-normal text-base md:text-lg">Recursos</h4>
+                </li>
+                <li class="mt-6">
+                    <a class="text-base text-gray-600" href="">Tarjetas de regalo</a>
+                </li>
+                <li class="mt-2">
+                    <a class="text-base text-gray-600" href="">Buscar una tienda</a>
+                </li>
+                <li class="mt-2">
+                    <a class="text-base text-gray-600" href="">membresia</a>
+                </li>
+                <li class="mt-2">
+                    <a class="text-base text-gray-600" href="">Diario de Nike</a>
+                </li>
+                <li class="mt-2">
+                    <a class="text-base text-gray-600" href="">Comentarios del sitio</a>
+                </li>
+
+            </ul>
+            <ul>
+                <li>
+                    <h4 class="font-normal text-base md:text-lg">Ayuda</h4>
+                </li>
+                <li class="mt-6">
+                    <a class="text-base text-gray-600" href="">Obtener ayuda</a>
+                </li>
+                <li class="mt-2">
+                    <a class="text-base text-gray-600" href="">Estado del pedido</a>
+                </li>
+                <li class="mt-2">
+                    <a class="text-base text-gray-600" href="">Envio y entrega</a>
+                </li>
+                <li class="mt-2">
+                    <a class="text-base text-gray-600" href="">Devuelve</a>
+                </li>
+                <li class="mt-2">
+                    <a class="text-base text-gray-600" href="">Cancelacion de pedido</a>
+                </li>
+
+                <li class="mt-2">
+                    <a class="text-base text-gray-600" href="">Opciones de pago</a>
+                </li>
+
+                <li class="mt-2">
+                    <a class="text-base text-gray-600" href="">Saldo de la tarjeta de regalo</a>
+                </li>
+
+                <li class="mt-2">
+                    <a class="text-base text-gray-600" href="">Contáctenos</a>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <h4 class="font-normal text-base md:text-lg">Compañia</h4>
+                </li>
+                <li class="mt-6">
+                    <a class="text-base text-gray-600" href="">Acerca de Nike</a>
+                </li>
+                <li class="mt-2">
+                    <a class="text-base text-gray-600" href="">Noticia</a>
+                </li>
+                <li class="mt-2">
+                    <a class="text-base text-gray-600" href="">Careras</a>
+                </li>
+                <li class="mt-2">
+                    <a class="text-base text-gray-600" href="">Inversores</a>
+                </li>
+
+                <li class="mt-2">
+                    <a class="text-base text-gray-600" href="">Propósito</a>
+                </li>
+
+                <li class="mt-2">
+                    <a class="text-base text-gray-600" href="">Sostenibilidad</a>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <h4 class="font-normal text-wrap text-base md:text-lg">Promociones y Descuentos</h4>
+                </li>
+                <li class="mt-6">
+                    <a class="text-base text-gray-600" href="" class="truncate">Estudiante</a>
+                </li>
+                <li class="mt-2">
+                    <a class="text-base text-gray-600" href="">Militar</a>
+                </li>
+                <li class="mt-2">
+                    <a class="text-base text-gray-600" href="">Maestro</a>
+                </li>
+                <li class="mt-2">
+                    <a class="text-base text-gray-600" href="">Primeros auxilios</a>
+                </li>
+
+                <li class="mt-2">
+                    <a class="text-base text-gray-600" href="">Cumpleaños</a>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <h4 class="font-normal text-base md:text-lg">Niños</h4>
+                </li>
+                <li class="mt-6">
+                    <a class="text-base text-gray-600" href="" class="truncate">Zapatos para bebes y conjuntos</a>
+                </li>
+                <li class="mt-2">
+                    <a class="text-base text-gray-600" href="">Zapatos para niños</a>
+                </li>
+                <li class="mt-2">
+                    <a class="text-base text-gray-600" href="">Zapatillas de balones</a>
+                </li>
+                <li class="mt-2">
+                    <a class="text-base text-gray-600" href="">Zapatillas de correr</a>
+                </li>
+
+            </ul>
+
+
+
+
+
+
+        </div>
+    </section>
+
+    <footer class="w-full text-lg my-8 text-center">
+        <p class="text-baserjustify-self-start">© 2024 Nike, Desarrollado por
+            Larry,
+            javier,
+            Jarminton,
+            Andres,
+            Proyecto numero dos de desarrollo de software</p>
+    </footer>
+    <script src="/js/components.js"></script>
+</body>
+</html>

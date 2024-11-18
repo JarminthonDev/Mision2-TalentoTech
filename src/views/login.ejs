@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienvenidos a Nike - Inicio de sesión</title>
+    <link rel="stylesheet" href="./output.css">
+    <link rel="shortcut icon" href="./uses/nike-icon.svg" type="image/x-icon">
+</head>
+
+<body class="w-full min-h-screen flex justify-center">
+    <section class="w-[31rem] block px-6 py-9 space-y-3">
+        <!-- logos -->
+        <div class="flex space-x-1">
+            <img src="./uses/nike.svg" alt="" width="48" class="scale-110 -translate-x-1 -translate-y-1 rotate-6 select-none">
+            <svg aria-hidden="true" class="css-132diu7" focusable="false" viewBox="0 0 48 48" role="img" width="48px" height="48px" fill="none" aria-label="jordan-logo" alt-text="jordan-logo">
+                <path fill="currentColor" fill-rule="evenodd" d="M26.363 7.467..." clip-rule="evenodd"></path>
+            </svg>
+        </div>
+        <!-- title -->
+        <div class="text-3xl font-normal">
+            Ingresa tu correo electrónico para unirte a nosotros o iniciar sesión.
+        </div>
+        <form id="login-form" class="mt-3" method="POST" action="/submit-email">
+            <!-- select -->
+            <div class="flex ">
+                <div class="font-medium space-x-2">
+                    <span id="pais_seleccionar"name="pais_seleccionar" >Colombia</span>
+                    <label class="relative text-slate-700/80 underline underline-offset-1">
+                        Cambio
+                        <select class="absolute cursor-pointer right-0 w-full opacity-0" name="country" id="country">
+                            <option value="Brazil">Brazil</option>
+                            <option value="Venezuela">Venezuela</option>
+                            <option value="Peru">Peru</option>
+                            <option value="Chile">Chile</option>
+                            <option value="Ecuador">Ecuador</option>
+                            <option value="España">España</option>
+                            <option value="Mexico">Mexico</option>
+                            <option value="Panama">Panama</option>
+                            <option value="Honduras">Honduras</option>
+                            <option value="Colombia">Colombia</option>
+                        </select>
+                    </label>
+                </div>
+            </div>
+
+            <!-- correo -->
+            <div class="w-full mt-10 mb-12 relative">
+                <input
+                    class="peer w-full p-3 pt-5 pl-10 pr-4 bg-inherit border rounded-lg outline-none transition disabled:opacity-70 disabled:cursor-not-allowed border-gray-500 focus:border-slate-800"
+                    type="email" placeholder="" name="username" id="username" />
+                <label
+                    class="absolute text-gray-500 text-base duration-150 transform -translate-y-10 top-5 z-10 origin-[0] left-2 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-8 peer-focus:text-slate-800 peer-focus:bg-white peer-focus:px-2"
+                    for="username">
+                    Correo*
+                </label>
+            </div>
+
+            <!-- términos de uso -->
+            <div class="font-medium text-slate-700/80">
+                <p class="max-w-sm">Al continuar, acepto la <a href="#" class="underline indent-1">Política de privacidad</a> y los <a href="#" class="underline indent-1">Términos de uso de Nike.</a></p>
+            </div>
+
+            <!-- botón continuar-->
+            <div class="mt-8 flex justify-end">
+                <button type="submit" class="px-6 py-3 bg-[#111111] hover:bg-[#707072] rounded-full text-white font-semibold">Continue</button>
+            </div>
+        </form>
+    </section>
+
+    <!-- Incluir validaciones.js -->
+    <script>
+        // Obtener elementos
+        const paisSeleccionadoSpan = document.getElementById('pais_seleccionar');
+        const selectPais = document.getElementById('country');
+    
+        // Escuchar el evento 'change' en el select
+        selectPais.addEventListener('change', (event) => {
+            // Cambiar el texto del span con el país seleccionado
+            paisSeleccionadoSpan.textContent = event.target.value;
+        });
+    </script>
+     <script src="../app.js"></script>
+    <!-- <script src="./js/validations.js"></script> -->
+</body>
+
+</html>
