@@ -4,62 +4,76 @@ const path = require('path');
 const app = express();
 const queries = require('./public/db/queries');
 const connection = require('./public/db/db');
-const { log } = require('console');
+const { log, Console } = require('console');
+const { body, validationResult } = require('express-validator')
 
-
+app.use(express.json());
+app.use(express.static(path.join(__dirname, 'public')));
+app.set('view engine', 'ejs')
+app.set('views', path.join(__dirname, 'src/views'));  // Configura la carpeta de vistas
+app.use(express.urlencoded({ extended: true }));
 app.use(session({
     secret: "123",
     resave: true,
     saveUninitialized: true
 }))
 
-app.use(express.json());
-app.use(express.static(path.join(__dirname, 'public')));
-
-
-app.set('view engine', 'ejs')
-app.set('views', path.join(__dirname, 'src/views'));  // Configura la carpeta de vistas
-app.use(express.urlencoded({ extended: true }));
-
 app.get('/', (req, res) => {
     res.render('index');
 });
 
 app.get('/check-login', (req, res) => {
-    res.render('login')    
+    res.render('login')
 });
 
-app.post('/submit-email', (req, res) => {
+app.post('/submit-email', [
+    body('username', 'Ingrese un correo')
+        .exists().withMessage('El campo correo es obligatorio')
+        .isEmail().withMessage('El campo correo es obligatorio y debe ser un correo válido'),
+], (req, res) => {
 
-    var { username } = req.body;
-    let email = req.body.username
-    let country = req.body.country
-
-
-    if (email) {
-        console.log('Correo recibido:', email);
-        console.log('pais:', country    );
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        // Renderizar errores en la respuesta o redirigir con errores
+        // return res.status(400).json({success: false,errors: errors.array(),});
+        // console.log(errors);
+        const valores = req.body;
+        const validaciones = errors.array();
+        console.log(validaciones);
         
-        queries.checkEmailExists(email, (err, results) => {
-            if (err) {
-                return res.status(500).json({ message: 'Error en la base de datos' });
-            }
-            if (results.length > 0) {
-                req.session.email = email
-                req.session.country = country
-                res.redirect('/password');                
-                return
-            } else {
-                console.log('Correo recibido correctamente');
-                req.session.email = email
-                req.session.country = country
-                res.redirect('/register');
-            }
-        });
-    } else {
-        console.log('Correo no proporcionado');
-        return res.status(400).json({ message: 'Correo no proporcionado' });
+        res.render('login',{validaciones:validaciones,valores:valores})
+    }else{
+        var { username } = req.body;
+        let email = req.body.username
+        let country = req.body.country
+    
+    
+        if (email) {
+            console.log('Correo recibido:', email);
+            console.log('pais:', country);
+    
+            queries.checkEmailExists(email, (err, results) => {
+                if (err) {
+                    return res.status(500).json({ message: 'Error en la base de datos' });
+                }
+                if (results.length > 0) {
+                    req.session.email = email
+                    req.session.country = country
+                    res.redirect('/password');
+                    return
+                } else {
+                    console.log('Correo recibido correctamente');
+                    req.session.email = email
+                    req.session.country = country
+                    res.redirect('/register');
+                }
+            });
+        } else {
+            console.log('Correo no proporcionado');
+            return res.status(400).json({ message: 'Correo no proporcionado' });
+        }
     }
+    
 });
 
 app.get('/password', (req, res) => {
@@ -68,28 +82,28 @@ app.get('/password', (req, res) => {
 
 
 app.post('/validacion', (req, res) => {
-    let {password} = req.body
-    
+    let { password } = req.body
+
     // Realiza una consulta SELECT a la base de datos
     connection.query(`SELECT contrasena FROM usuarios WHERE correo = "${req.session.email}"`, (err, results) => {
         console.log(req.session.email);
-        
+
         if (err) {
             console.error('Error en la consulta: ', err);
             return res.status(500).json({ message: 'Error al obtener los usuarios' });
-        }else{
-            results.forEach((e)=>{
-                if(password == e.contrasena){
-                    console.log(e.contrasena);                    
-                    console.log(password);                    
+        } else {
+            results.forEach((e) => {
+                if (password == e.contrasena) {
+                    console.log(e.contrasena);
+                    console.log(password);
                     res.redirect('/welcome');
-                }else{
+                } else {
                     console.log('La contraseña es incorrecta');
-                    
-                }    
-            })  
-        }            
-        
+
+                }
+            })
+        }
+
     });
 });
 
@@ -98,14 +112,8 @@ app.get('/welcome', (req, res) => {
 });
 
 app.get('/register', (req, res) => {
-    res.render('register');    
+    res.render('register');
 });
-
-
-
-// app.get('/welcome-app', (req, res) => {
-//     res.sendFile(path.join(__dirname, 'public', 'welcome-app.html'));
-// });
 
 app.get('/get-email', (req, res) => {
     if (req.session.email) {
@@ -114,25 +122,19 @@ app.get('/get-email', (req, res) => {
     return res.status(404).json({ message: 'No email found in session' });
 });
 
-
-
-
 // Ruta para insertar un nuevo usuario
 app.post('/submit-registrar', (req, res) => {
     if (!req.session.email) {
         console.log('No hay sesión activa, redirigiendo...');
         return res.redirect('/');
     }
-    // // Verifica que los campos requeridos estén presentes
-    // if (!nombre || !email || !edad) {
-    //     return res.status(400).json({ message: 'Faltan campos requeridos' });
-    // }
+
     const bornDate = req.body.fecha_año + '-' + req.body.fecha_mes + '-' + req.body.fecha_dia
     const pais = req.session.country;
     const correo = req.session.email;
 
     console.log(req.body);
-    
+
 
     const { code, username, last_name, password, preferencia } = req.body;
 
@@ -140,7 +142,7 @@ app.post('/submit-registrar', (req, res) => {
         INSERT INTO usuarios (correo, codigo, nombre, apellido, contrasena, preferencia, fecha_nacimiento, pais)
         VALUES (?, ?, ?, ?, ?, ?, ?, ?)
     `;
-                   connection.query(query, [correo, code, username, last_name, password, preferencia, bornDate, pais], (err, results) => {
+    connection.query(query, [correo, code, username, last_name, password, preferencia, bornDate, pais], (err, results) => {
         // if (err) {
         //     console.error('Error al insertar usuario: ', err);
         //     return res.status(500).json({ message: 'Error al insertar el usuario' });
